@@ -21,7 +21,8 @@ impl Stock {
 
 impl From<String> for Stock {
     fn from(name: String) -> Self {
-        let currency = if name.split(".").collect::<Vec<&str>>().len() > 1 {
+        let words = name.split(".");
+        if words.clone().count() > 1 {
             Currency::EUR
         } else {
             Currency::USD
